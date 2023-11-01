@@ -1,5 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.slider-container {
+  width: 98%;
+  margin: 0 auto;
+}
+.carousel {
+    height: 350px; 
+}
+
+.carousel-item {
+    height: 350px;
+}
+
+.carousel-item img {
+    object-fit: cover; 
+    max-width: 100%;
+            max-height: 100%;
 }
