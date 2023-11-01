@@ -3,10 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-.slider-container {
-  width: 98%;
-  margin: 0 auto;
-}
 .carousel {
     height: 350px; 
 }
@@ -30,15 +26,17 @@
     border: none;
     border-radius: 0;
     color: #000000;
+    font-weight: 600;
     padding: 2px 5px;
 }
 
 .navLink:hover {
-    background-color: #82b1e4; 
-    border-radius: 5px;
+    color: #1e7ae3; 
+    text-decoration: underline;
+
 }
 
 .navLink.active {
-    background-color: #82b1e4; 
-    border-radius: 5px;
+    color: #1e7ae3; 
+    text-decoration: underline;
 }
