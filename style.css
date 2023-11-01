@@ -20,3 +20,25 @@
     max-width: 100%;
             max-height: 100%;
 }
+.navItem {
+    margin: 0;
+}
+.navItem a {
+    text-decoration: none;
+}
+.navLink {
+    border: none;
+    border-radius: 0;
+    color: #000000;
+    padding: 2px 5px;
+}
+
+.navLink:hover {
+    background-color: #82b1e4; 
+    border-radius: 5px;
+}
+
+.navLink.active {
+    background-color: #82b1e4; 
+    border-radius: 5px;
+}
