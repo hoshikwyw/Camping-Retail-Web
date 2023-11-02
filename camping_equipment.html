@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Camping Store</title>
-    <link rel="stylesheet" href="./navbar.css" />
-    <link rel="stylesheet" href="./equipments.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/equipments.css" />
     <link
       rel="shortcut icon"
       href="./imgs/android-chrome-512x512.png"
@@ -33,14 +33,17 @@
           <li class="link-item">
             <a href="reviews.html">Reviews</a>
           </li>
-          <li class="link-item">
+          <li class="link-item basket-icon">
             <a href="basket.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 576 512">
                 <path
-                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg></a>
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              </svg>
+            </a>
+            <span class="cart-counter" id="cart-counter">0</span>
           </li>
         </ul>
       </div>
@@ -94,134 +97,183 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="camping_equipment.html">Camping Equipment</a></li>
           <li><a href="reviews.html">Reviews</a></li>
-          <li>
+          <li class="basket-icon">
             <a href="basket.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 576 512">
                 <path
-                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg></a>
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              </svg>
+            </a>
+            <span class="cart-counter" id="cart-counter">0</span>
           </li>
         </ul>
       </div>
     </div>
     <h2 class="equipment-title">camping equipments</h2>
-    <div class="items-container">
+    <div class="items-container" id="product-list">
       <div class="item">
         <p class="item-img-container">
           <img
+            class="item-img"
             src="https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Trekking-Backpack-600x600.jpg"
             alt="bag.jpg" />
         </p>
         <div class="text">
-          <h2 class="item-name">Trekking Backpack</h2>
-          <h4 class="item-price">$150</h4>
+          <h3 class="item-name" id="productName">Trekking Backpack</h3>
+          <h4 class="item-price" id="productPrice">$150</h4>
           <div class="item-rating">Rating : 4.8</div>
-          <button class="cart-btn">add to basket <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 576 512">
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></button>
+          <button
+            class="cart-btn"
+            id="addToCart"
+            onclick="addToCart('Trekking Backpack', 150 , 'https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Trekking-Backpack-600x600.jpg')">
+            add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-productid="2">
         <p class="item-img-container">
           <img
             src="https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Brown-Ankle-High-Men-Boots-600x600.jpg"
             alt="boot.jpg" />
         </p>
         <div class="text">
-          <h2 class="item-name">Brown Ankle High Men Boots</h2>
+          <h3 class="item-name">Brown Ankle High Men Boots</h3>
           <h4 class="item-price">$140</h4>
           <div class="item-rating">Rating : 4.0</div>
-          <button class="cart-btn">add to basket <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 576 512">
-
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></button>
+          <button class="cart-btn" onclick="addToCart('Brown Ankle High Men Boots', 140 , 'https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Brown-Ankle-High-Men-Boots-600x600.jpg')">
+            add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-productid="3">
         <p class="item-img-container">
           <img
             src="https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Metal-Water-Bottle-600x600.jpg"
             alt="bottle.jpg" />
         </p>
         <div class="text">
-          <h2 class="item-name">Metal Water Bottle</h2>
+          <h3 class="item-name">Metal Water Bottle</h3>
           <h4 class="item-price">$60</h4>
           <div class="item-rating">Rating : 4.1</div>
-          <button class="cart-btn">add to basket <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 576 512">
-
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></button>
+          <button class="cart-btn" onclick="addToCart('Metal Water Bottle', 60 , 'https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Metal-Water-Bottle-600x600.jpg')">
+            add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-productid="4">
         <p class="item-img-container">
           <img
             src="https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Compass-600x600.jpg"
             alt="Compass.jpg" />
         </p>
         <div class="text">
-          <h2 class="item-name">Compass</h2>
+          <h3 class="item-name">Compass</h3>
           <h4 class="item-price">$60</h4>
           <div class="item-rating">Rating : 4.1</div>
-          <button class="cart-btn">add to basket <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 576 512">
-
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></button>
+          <button class="cart-btn"  onclick="addToCart('Compass', 60 , 'https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Compass-600x600.jpg')">
+            add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-productid="5">
         <p class="item-img-container">
           <img
             src="https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Folding-Knife.jpg"
             alt="Folding Knife.jpg" />
         </p>
         <div class="text">
-          <h2 class="item-name">Folding Knife</h2>
+          <h3 class="item-name">Folding Knife</h3>
           <h4 class="item-price">$60</h4>
           <div class="item-rating">Rating : 4.1</div>
-          <button class="cart-btn">add to basket <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 576 512">
-
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></button>
+          <button class="cart-btn"  onclick="addToCart('Folding Knife', 60 , 'https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Folding-Knife.jpg')">
+            add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="item">
+      <div class="item" data-productid="6">
         <p class="item-img-container">
           <img
             src="https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Flashlight-600x600.jpg"
             alt="FlashLight.jpg" />
         </p>
         <div class="text">
-          <h2 class="item-name">FlashLight</h2>
+          <h3 class="item-name">FlashLight</h3>
           <h4 class="item-price">$60</h4>
           <div class="item-rating">Rating : 4.1</div>
-          <button class="cart-btn">add to basket <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 576 512">
-
-            <path
-              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></button>
+          <button class="cart-btn" onclick="addToCart('FlashLight', 60 , 'https://fullkit.moxcreative.com/barrameru/wp-content/uploads/sites/18/2022/09/Flashlight-600x600.jpg')">
+            add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
-    <script src="./sidebar.js"></script>
+
+    
+    <script src="./js/sidebar.js"></script>
+    <script>
+      function addToCart(productName, price, imageUrl) {
+        const cartItem = {
+          name: productName,
+          price: price,
+          image: imageUrl,
+        
+        };
+
+        // Check if the cart is already in local storage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Add the new item to the cart
+        cart.push(cartItem);
+
+        // Update the cart in local storage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(productName + " added to cart!");
+      }
+    </script>
   </body>
 </html>

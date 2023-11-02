@@ -8,7 +8,8 @@
       rel="shortcut icon"
       href="./imgs/android-chrome-512x512.png"
       type="image/x-icon" />
-    <link rel="stylesheet" href="./navbar.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -32,15 +33,17 @@
           <li class="link-item">
             <a href="reviews.html">Reviews</a>
           </li>
-          <li class="link-item">
-            <a href="basket.html"
-              >
+          <li class="link-item basket-icon">
+            <a href="basket.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 576 512">
                 <path
-                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg> </a>
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              </svg>
+            </a>
+            <span class="cart-counter" id="cart-counter">0</span>
           </li>
         </ul>
       </div>
@@ -94,21 +97,92 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="camping_equipment.html">Camping Equipment</a></li>
           <li><a href="reviews.html">Reviews</a></li>
-          <li>
-            <a href="basket.html"
-              >
+          <li class="basket-icon">
+            <a href="basket.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 576 512">
-
                 <path
-                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" /></svg ></a>
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              </svg>
+            </a>
+            <span class="cart-counter" id="cart-counter">0</span>
           </li>
         </ul>
       </div>
     </div>
-    basket page
-    <script src="./sidebar.js"></script>
+    <h1 class="cart-title">Shopping Cart</h1>
+    <div id="cart-items" class="cart-container"></div>
+    <p class="price-text">Total Price: $<span id="total-price">0.00</span></p>
+
+    <script src="./js/sidebar.js"></script>
+
+    <script>
+
+      function removeItem(index) {
+        const cart = JSON.parse(localStorage.getItem("cart"));
+
+        if (cart && cart.length > index) {
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          displayCart();
+        }
+      }
+
+      // Function to display the cart items on the shopping cart page
+      function displayCart() {
+        const cart = JSON.parse(localStorage.getItem("cart"));
+        const cartItems = document.getElementById("cart-items");
+        const totalPriceElement = document.getElementById("total-price");
+
+        if (cart && cart.length > 0) {
+          cartItems.innerHTML = "";
+          let totalPrice = 0;
+          cart.forEach((item, index) => {
+            const cartItem = document.createElement("div");
+            totalPrice += item.price;
+            cartItem.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; border: 1px solid #ddd; padding: 0 10px;">
+        <p class="item-img-container">
+          <img style="width: 200px; height: 180px;"
+            src=${item.image}
+            alt=${item.name}.jpg />
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; justify-content: center;align-items: center;">
+          <h3 class="item-name">${item.name}</h3>
+          <h4 class="item-price">price : $${item.price}</h4>
+          </div>
+          <button style="background-color: rgb(217, 102, 138); color: #fff; border: 0; padding: 5px; border-radius: 5px; font-size: 13px; text-transform: uppercase; cursor: pointer;" class="cart-btn" onclick="removeItem(${index})">
+            Remove
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg>
+          </button>
+      </div>`;
+            cartItems.appendChild(cartItem);
+          });
+          totalPriceElement.textContent = totalPrice.toFixed(2); // Display total price with 2 decimal places
+        } else {
+          cartItems.innerHTML = `
+          <div style="display: flex; flex-direction: column; justify-content: center;align-items: center; gap: 40px;">
+            <p style="text-align: center; margin: 10px 0; font-size: 20px;">Your cart is empty.</p>
+            <button style="border: 0 ;background-color: #373737aa; padding: 5px; border-radius: 5px; font-size: 13px; text-transform: uppercase; cursor: pointer;">
+              <a style=" text-decoration: none;  color: #fff; font-weight: 700;" href="camping_equipment.html"> Go Shopping
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 576 512">
+                <path
+                  d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              </svg>
+               </a>
+               </button>
+               </div>
+               `;
+          totalPriceElement.textContent = "0.00";
+        }
+      }
+
+      displayCart();
+    </script>
   </body>
 </html>

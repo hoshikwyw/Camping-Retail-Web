@@ -1,0 +1,14 @@
+.cart-title {
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    padding: 20px 0;
+}
+.cart-container {
+    width: 98%;
+    margin: 0 auto;
+}
+.price-text {
+    padding: 20px 30px;
+    text-align: right;
+}
