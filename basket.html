@@ -5,8 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Camping Store</title>
     <link rel="shortcut icon" href="./imgs/android-chrome-512x512.png" type="image/x-icon">
+    <link rel="stylesheet" href="./navbar.css">
   </head>
   <body>
+    <nav class="navbar">
+      <div class="logo-section">
+        <a href="index.html">
+          <img
+            src="./imgs/android-chrome-512x512.png"
+            alt="logo"
+            class="logo-image" />
+          <h2 class="logo-title">Camping Store</h2>
+        </a>
+      </div>
+      <div class="nav-link">
+        <ul class="nav-link-container">
+          <li class="link-item">
+            <a href="index.html" class="active">Home</a>
+          </li>
+          <li class="link-item">
+            <a href="camping_equipment.html">Camping Equipment</a>
+          </li>
+          <li class="link-item">
+            <a href="reviews.html">Reviews</a>
+          </li>
+          <li class="link-item">
+            <a href="basket.html">Basket</a>
+          </li>
+        </ul>
+      </div>
+      <button class="burger-btn" onclick="toggleNavbar()">
+        <svg
+          class="burger"
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#000000"
+          stroke-width="2"
+          stroke-linecap="square"
+          stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+    <div id="sidebar" class="sidebar">
+      <div class="sidebar-container">
+        <div class="logo-section">
+          <a href="index.html"><img
+            src="./imgs/android-chrome-512x512.png"
+            alt="logo"
+            class="logo-image" />
+          <h2 class="logo-title">Camping Store</h2></a>
+          <button class="burger-btn" onclick="toggleNavbar()">
+            <svg
+              class="cross"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000000"
+              stroke-width="2" 
+              stroke-linecap="square"
+              stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <hr />
+        <ul class="sidebar-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="camping_equipment.html">Camping Equipment</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="basket.html">Basket</a></li>
+        </ul>
+      </div>
+    </div>
     basket page
+    <script src="./sidebar.js"></script>
+
   </body>
 </html>

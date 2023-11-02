@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.navbar {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  z-index: 200;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(153, 153, 153, 0.63);
+  padding: 10px 15px;
+}
+.logo-section a {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+}
+.logo-section img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.nav-link-container {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-link-container a,
+#sidebar a {
+  text-decoration: none;
+  color: #252525;
+  font-weight: 700;
+}
+.nav-link-container a:hover,
+#sidebar a:hover {
+  color: #619bed;
+  text-decoration: underline;
+}
+.nav-link-container .link-item .active {
+  color: #619bed;
+  text-decoration: underline;
+}
+#sidebar {
+  background-color: #00000036;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 500;
+  transition: all 0.1s;
+  transform: translateX(-1000000px);
+}
+.sidebar-container {
+  width: 65%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 600;
+  background-color: #fff;
+}
+.sidebar-container .sidebar-nav-links li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.navbar .burger-btn {
+  background: transparent;
+  border: 0;
+}
+.sidebar-container .logo {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-container .logo a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.sidebar-container .logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.sidebar-container .burger-btn {
+  background: transparent;
+  border: 0;
+}
+@media only screen and (max-width: 700px) {
+  .navbar .nav-link {
+    display: none;
+    position: absolute;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .navbar .burger-btn {
+    display: none;
+    position: absolute;
+  }
+}
